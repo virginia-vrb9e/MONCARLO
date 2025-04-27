@@ -21,22 +21,21 @@ class MonCarloDevice():
         if not isinstance(faces, np.ndarray):  
             raise TypeError("Input of faces must be an NumPy array.") 
         else:
-            print("yes, this is an np.ndarray!")
+            print("yes, this is an np.ndarray!")  # production only; take out at the end
             
         # check that faces are strings or numbers
         x = len(self.faces)
         for i in range(x):
             if not isinstance(self.faces[i], (str)):
                 float(i)
-                print("switched to float")
+                print("switched to float")  # production only; take out at the end 
             else:
-                print("check ok: this face is either a string or number.")         
-
+                print("check ok.") # production only; take out at the end   
+                
         # check that faces are unique values 
         uniq = np.unique(faces)  # np.unique returns array of unique values
         if len(uniq) != len(faces):
-            raise ValueError("The NumPy array of faces for your device \
-            must be of unique values.")
+            raise ValueError("The array of faces must be of unique values.")
 
         # initiate the weights as 1.0   
         self.weights = []
@@ -45,7 +44,7 @@ class MonCarloDevice():
         
         for i in range(x):
             self.weights.append(1.0)
-#        self.weights.extend(1.0 * x)...  # maybe replacing for loop with comprehension
+#        self.weights.extend(1.0 * x)...  # maybe replace loop with comprehension or other... 
     
         # return faces and weights in a private df w/ faces as index
         col_names = ['weight']
@@ -69,7 +68,7 @@ class MonCarloDevice():
             else:
                 print("check okay: that face exists.") # production only; take out later
                 
-        # check if nwt is int or float - OR castable | TypeError
+        # check if nwt is int or float or castable | TypeError
         if not isinstance(nwt, (int, float)):
             try:
                 nwt = float(nwt)  
@@ -99,15 +98,16 @@ class MonCarloDevice():
 # The Game class
 class Game(MonCarloDevice):
     # method: initializer/constructor
-    def __init__(self, *dice): # dice is a list (of lists) of already instantiated dice
+    def __init__(self, *dice): 
         self.dice = dice
+        assert isinstance(nroll, int)
+        throws = []
         
-        
-        
-        
-        
-        # create a particular structure with the incoming dice??
-        # create series or simpler lists that can be used to build? 
+        # enumerate iterates and counts 
+        for index, die in enumerate(self.dice):
+            throws.append(die)
+        throws_dict = ((i,j) for i,j in throws)
+        return throws, throws_dict 
         
     # method: play
     def play(self, n_rolls):
@@ -117,7 +117,7 @@ class Game(MonCarloDevice):
     
     # SAVES the result of the play to a private data frame
     # wide format: roll number as named index, columns for each die face (using it's list index as the column name) and the face rolled in that instance 
-    
+    def save_results(self):
     
     
     
@@ -125,6 +125,11 @@ class Game(MonCarloDevice):
     # returns a COPY of the private play data frame
     # takes a parameter to return the data frame in wide (default) or narrow format 
     # Value Error if user passes an invalid option for narrow or wide
+    def show_results (self, format = 'wide'):
+    
+    
+    
+    
     
     
 # The Analyzer class
