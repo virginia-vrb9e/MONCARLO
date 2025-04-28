@@ -32,7 +32,7 @@ The simulator allow a user to create one or more die objects with weighted sides
 ### SYNOPSIS
 This Python module consists of three classes that work together in sequence to simulate a Monte Carlo device. There is no parent class, per se, but the classes are called in this sequence:
 
-<center>[die class] --> [game class] --> [analyzer class]
+[die class] --> [game class] --> [analyzer class], 
 
 wherein products from the previous class are used to initiate the next class in the sequence. 
 
