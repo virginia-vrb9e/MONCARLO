@@ -3,17 +3,17 @@
 <img src="https://github.com/virginia-vrb9e/DS5100-project-repo/blob/main/mon_carlo_device/d20_met_nyc.jpg" width=200 height=200 align='left'>
 
 ### Purpose
-This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes 
-- a die class named *MonCarloDevice*,
-- a game class named *MonCarloGame*, and
-- an analyzer class called *MonCarloAnalyzer*.  
+ This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes 
+ - a die class named *MonCarloDevice*,
+ - a game class named *MonCarloGame*, and
+ - an analyzer class called *MonCarloAnalyzer*.  
 
-The simulator allow a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided. 
+ The simulator allow a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided. 
 #### Notes about language
-- **die**: Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language)
+ - **die**: Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language)
 .
-- **face**: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die.
-- **xx**:
+ - **face**: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die.
+ - **xx**:
 
 ### METADATA
 ### Package Information:
