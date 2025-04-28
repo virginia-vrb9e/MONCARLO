@@ -37,15 +37,21 @@ This Python module consists of three classes that work together in sequence to s
 wherein products from the previous class are used to initiate the next class in the sequence. 
 
 ### *MonCarloDevice*
-**Calling the die class:**
+The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  
+#### Instantiation:
+It initializes with a numpy array of either strings or numbers that must be unique values in the array. 
+#### Additional Methods: 
+After instantiation, the user can either 
+- roll the dice, or
+- change the weight of one side to create an 'unfair' die. 
 
-The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  It initializes with a numpy array of either strings or numbers that must be unique values in the array. After instantiation, the user can either roll the dice, or change the weight of one side to create an 'unfair' die. 
+### *MonCarloGame*
+#### Instantiation:
+#### Additional Methods: 
 
-
-
-
-
-
+### *MonCarloAnalyzer*
+#### Instantiation:
+#### Additional Methods:
 
 SHowing how each class is called:
 - what the class does
