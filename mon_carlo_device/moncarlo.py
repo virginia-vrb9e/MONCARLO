@@ -5,6 +5,12 @@ import matplotlib.pyplot as plt
 
 # The Die class
 class MonCarloDevice:
+    """
+    1. creates a game
+    2. takes N, a number of sides for the Monte Carlo device where N<=20
+    3. ...
+    """
+    
     img = mpimg.imread('d20_met_nyc.jpg')
     plt.imshow(img)
     print("THE MET Museum: \n\nicosahedron with faces inscribed with Greek letters \nPtolemaic Period–Roman Period\n(2nd century \
@@ -13,6 +19,19 @@ class MonCarloDevice:
     
 
     def __init__(self, faces):
+        
+         """ 
+        This initializer:
+        
+        (1) takes a NumPy array (of dtype string or numbers) of DISTINCT faces as an argument. 
+            - throws a TypeError if it is not a NumPy array
+            - checks to see if the array values are distinct - ValueError if not
+            
+        (2) initializes an MC object with a default value for weights, W = 1.0.
+        
+        (3)Returns a private dataframe with the faces of the MC object as index.
+        """
+            
         self.faces = faces
         print(type(faces))
             
