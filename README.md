@@ -1,11 +1,12 @@
 # DS 5100 Final Project
-#### **A Monte Carlo Simulation Game & Stats**
-This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. 
-
+## **A Monte Carlo Simulation Game & Stats**
 <img src="https://github.com/virginia-vrb9e/DS5100-project-repo/blob/main/mon_carlo_device/d20_met_nyc.jpg" width=200 height=200 align='left'>
 
 ### Purpose
-Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes - a die class named *MonCarloDevice*, A game class named *MonCarloGame*, and an analyzer class called *MonCarloAnalyzer*.  
+This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes 
+- a die class named *MonCarloDevice*,
+- a game class named *MonCarloGame*, and
+- an analyzer class called *MonCarloAnalyzer*.  
 
 The simulator allow a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided. 
 #### Notes about language
