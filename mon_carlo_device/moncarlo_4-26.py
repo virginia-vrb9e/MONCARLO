@@ -31,7 +31,6 @@ class MonCarloDevice:
             else:
                 print("check ok.") # production only; take out at the end   
                 
-                
         uniq = np.unique(faces)  
         if len(uniq) != len(faces):
             raise ValueError("The array of faces must be of unique values.")
@@ -139,45 +138,40 @@ class MonCarloGame:
         # narrow: MultiIndex (roll# and die#)+ single column with outcome
         # wide to narrow with stack() -- can also unstack()
         elif format == 'narrow':
-#            self._rolls.reset_index().set_index(['roll_#','die_#']) # reset-set does not work here bc col of die(s) not already 'named'
+#            self._rolls.reset_index().set_index(['roll_#','die_#'])
             df_n = self._rolls.stack()
             df_n.index.names = ['roll_#' , 'die_#']
         return df_n
     
+    
+    
+    
 ##############################################################################################################
 
-    
 # The Analyzer class
-class MonCarloAnalyzer:
-
+#class MonCarloAnalyzer():
+    #
     # method: init
     # takes results of one game (game object) | ValueError
     
-    def __init__(self, game):
-        if not isinstance(game, MonCarloGame):
-            raise ValueError("Must pass a MonCarloGame object to initiate.")
-        self.game = game
-        
-
+    
+    
+    
+    
+    
     # method: jackpot (all faces the same)
-    # computes: how many times the game resulted in a jackpot 
-    # nunique(axis = 1), for row-wise
-    # returns an integer: int()
+    # computes: how many times the game resultsed in a jackpot
+    # returns an integer
     
-    def jackpot(self):
-        jackpot = (self.game.nunique(axis=1)==1)
-        num_jackpots = sum(jackpot == True)
-        return int(num_jackpots)
     
-
+    
+    
+    
     # method: face-counts-per-roll 
     # computes how many times a particular face is rolled in each event
     # df in wide format (roll_# index)
-    def facecounts_per_roll(self):
-        facecounts = self.game.fillna(0)
-        facecounts = self.game.count(axis='rows')
     
-        # need to create a df of results... 
+    
     
     
     # method: combo count
@@ -189,5 +183,3 @@ class MonCarloAnalyzer:
     
     
     # method: permutation count
-    
-
