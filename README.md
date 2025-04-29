@@ -63,45 +63,149 @@ SHowing how each class is called:
 
 ## MonCarloDevice (die class)
 
-Action: This class creates a game object/device for a Monte Carlo simulation. 
+    Actions: This class creates a game object/device for a Monte Carlo simulation.
     
-Input: takes a numpy array of sides for the device
-- must be a NumPy array
-- sides or faces must be unique
-- sides can be numbers or strings
+    Instantiation: requires a numpy array of sides for the device
+            - must be a NumPy array
+            - sides or faces must be unique
+            - sides can be numbers or strings
 
 ### Methods:
+
         __init__: 
-            instantiates a game device with the given p.array
+            instantiates a game device with the given np.array
               - creates a game device with the face values of the array 
               - and a default face weight of 1.0
 Input:              
-| Parameter | Type     | Description                                                      |
-| :-------- | :------- | :--------------------------------------------------------------- |
-| `faces`   | `string` | **Required**. must be a NumPy array of unique values, str or int |
+| Parameter | Type       | Description                                                             |
+| :-------- | :--------- | :---------------------------------------------------------------------- |
+| `faces`   | `np.array` | **Required**. must be a NumPy array of unique values, either int or str |
 
 
         change_facewt: 
             changes the weight of a specified side to create an unfair die
               - takes 2 arguments: 
               (1) the face value to be changed  
-              (2) the new face-weight
-              
+              (2) the new face-weight 
+ Input:              
+| Parameter | Type            | Description                                                                |
+| :-------- | :-------------- | :------------------------------------------------------------------------- |
+|  `face`   | `string or int` | **Required**. must match one of the face values of the instantiated object |
+|   `nwt`   | `int or float`  | **Required**. must be an int or float                                      |
+
+
         roll: 
             rolls the die
-              - takes integer parameter of how many times to roll the die (defaults to 1)
-          
+              - takes integer parameter of how many times to roll the die (defaults to 1)      
+Input:              
+| Parameter | Type  | Description                      |
+| :-------- | :-----| :------------------------------- |
+| `nrolls`  |  `int`| **Required**. must be an integer |
+
+
         current_state: 
               returns the die's current state as a pandas dataframe
-    """
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
+
+## MonCarloGame (game class)
+
+    Action: Creates a game out of one or more instantiated game devices with identical faces
+            - rolls the dice all together
+            - shows user the results of the most recent roll/play
+    
+    Instantiation:
+            - one or more game devices created with the MonCarloDevice class
+
+### Methods:
+
+        __init__
+            takes a single parameter:
+                - a list of already instantiated game devices with identical faces
+Input:              
+| Parameter | Type  | Description                                                          |
+| :-------- | :-----| :------------------------------------------------------------------- |
+|  `dice`   | `list`| **Required**. must be list of objects instantiated by MonCarloDevice |
 
 
+        play:
+            takes an integer parameter for # of times the device(s) are to be rolled
+                - int()
+            saves the result of the play to a pandas dataframe
+Input:              
+| Parameter | Type   | Description     |
+| :-------- | :------| :-------------- |
+|  `nrolls`   | `int`| **Default = 1** |
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+
+        show_results:
+            takes a single parameter:
+                - string: 'wide' or 'narrow'
+                - indicates the format of the returned data
+            returns the results of the play in the chosen format
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
 
 
+## MonCarloAnalyzer (analyzer class)
+    
+    Action:
+        Takes the results of a single MonCarloGame and computes descriptive statistical properties about it
+        
+    Instantiation:
+        - a single game object created with the MonCarloGame class
+ 
+### Methods: 
+    
+        __init__:
+            game object as input parameter
+Input:              
+| Parameter | Type                      | Description                                                          |
+| :-------- | :-------------------------| :------------------------------------------------------------------- |
+|  `game`   | `instantiated game object`| **Required**. must be one instantiated game object from MonCarloGame |
 
-## Author
-- [@virginia-vrb9e (hhttps://github.com/virginia-vrb9e)]
+
+        jackpot: (all faces of all devices are the same)
+            - takes no additional parameters
+            - computes how many times the game resulted in a jackpot
+            - returns an integer 
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
+
+
+        facecounts_per_roll:
+            - computes how many times a given face is rolled in each event
+            - returns a pandas dataframe of results
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
+
+
+        combos:
+            - computes the distinct combinations of faces rolled, along with their counts
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
+
+
+        permutations:
+            - computes the distinct permutations of faces rolled, along with their counts
+Input: 
+| Parameter | Type     | Description  |
+| :-------- | :------- | :----------- |
+|   none    |   na     |   na         |
+
+
+### Author
+- [@virginia-vrb9e (https://github.com/virginia-vrb9e)]
+ 
+### Thanks
+- []

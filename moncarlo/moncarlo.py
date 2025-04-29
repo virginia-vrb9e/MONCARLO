@@ -15,7 +15,7 @@ class MonCarloDevice:
               - sides can be numbers or strings
     Methods:
         __init__: 
-            instantiates a game device with the given p.array
+            instantiates a game device with the given np.array
               - creates a game device with the face values of the array 
               - and a default face weight of 1.0
       
@@ -192,7 +192,7 @@ class MonCarloAnalyzer:
         computes descriptive statistical properties about it.
         
     Input:
-        - one game object create with the MonCarloGame class
+        - one game object createa with the MonCarloGame class
         
     Methods:
         __init__:
