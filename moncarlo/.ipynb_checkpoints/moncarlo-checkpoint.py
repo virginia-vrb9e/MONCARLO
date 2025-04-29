@@ -15,7 +15,7 @@ class MonCarloDevice:
               - sides can be numbers or strings
     Methods:
         __init__: 
-            instantiates a game device with the given p.array
+            instantiates a game device with the given np.array
               - creates a game device with the face values of the array 
               - and a default face weight of 1.0
       
@@ -102,7 +102,7 @@ class MonCarloDevice:
         self.nwt = {'weights' : nwt}
         df_dict = self._gamestats.to_dict('index')
         df_dict['self.face'] = self.nwt
-        self._gamestats = pd.DataFrame.from_dict(stat_dict, orient = 'index')
+        self._gamestats = pd.DataFrame.from_dict(df_dict, orient = 'index')
         print(self._gamestats()) # production only; take out at the end
 
 
@@ -192,7 +192,7 @@ class MonCarloAnalyzer:
         computes descriptive statistical properties about it.
         
     Input:
-        - one game object create with the MonCarloGame class
+        - one game object createa with the MonCarloGame class
         
     Methods:
         __init__:

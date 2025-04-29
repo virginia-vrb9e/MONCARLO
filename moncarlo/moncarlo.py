@@ -102,7 +102,7 @@ class MonCarloDevice:
         self.nwt = {'weights' : nwt}
         df_dict = self._gamestats.to_dict('index')
         df_dict['self.face'] = self.nwt
-        self._gamestats = pd.DataFrame.from_dict(stat_dict, orient = 'index')
+        self._gamestats = pd.DataFrame.from_dict(df_dict, orient = 'index')
         print(self._gamestats()) # production only; take out at the end
 
 
