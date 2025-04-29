@@ -243,3 +243,10 @@ class MonCarloAnalyzer:
         """computes the distinct permutations of faces rolled, along with their counts"""
         pass
 
+    def plot_results(self):
+        """plots results using the states stored in the analyzer object (self)"""
+        prob_model = pd.Series({i + 1:round(p,2) for i, p in enumerate(self.weights)})
+        print("Rolls: ", self.nrolls)
+        self._rolls.value_counts().sort_index().plot.bar(rot=0);
+        
+        
