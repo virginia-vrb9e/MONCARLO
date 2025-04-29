@@ -3,61 +3,89 @@
 <img src="d20_met_nyc.jpg" width=200 height=200 align='left'>
 
 ### Purpose
- This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes 
- - a die class named *MonCarloDevice*,
- - a game class named *MonCarloGame*, and
- - an analyzer class called *MonCarloAnalyzer*.  
 
- The simulator allow a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided. 
+    This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. 
+    Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes:
+    
+         - a die class named *MonCarloDevice*,
+         - a game class named *MonCarloGame*, and
+         - an analyzer class called *MonCarloAnalyzer*. 
+    
+    The simulator allows a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided.
+  
 #### Notes about language
- - **die**: Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language)
-.
- - **face**: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die.
- - **xx**:
 
-### METADATA
+    - **die**:  Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language).
+    
+    - **face**: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die. 
+
+
+## METADATA
 ### Package Information:
-- **Name**: moncarlo
-- **Version**: 1.0
-- **Release Date**: April 29, 2025
-- **License**: MIT
-- **Python Compatibility**: Tested in Python 3.12.5
+
+    - **Name**: moncarlo
+    - **Version**: 1.0.0
+    - **Release Date**: April 29, 2025
+    - **License**: MIT
+    - **Python Compatibility**: Tested in Python 3.12.5
+
 ### Necessary Packages:
-- numpy
-- pandas
-- matplotlib
+
+    - numpy
+    - pandas
+    - matplotlib
+
+
 ### Installation:
-{bash} pip install moncarlo
+```bash
+pip install moncarlo 
+```
 
-### SYNOPSIS
-This Python module consists of three classes that work together in sequence to simulate a Monte Carlo device. There is no parent class, per se, but the classes are called in this sequence:
+### Importing:
+```python
+from moncarlo import MonCarloDevice
+```
 
-[die class] --> [game class] --> [analyzer class], 
-
-wherein products from the previous class are used to initiate the next class in the sequence. 
+## SYNOPSIS
+    This Python module consists of three classes that work together in sequence to simulate a Monte Carlo device. There is no parent class, per se, but the classes are called in this sequence:
+    [die class] --> [game class] --> [analyzer class],
+    
+    wherein products from the previous class are used to initiate the next class in the sequence. 
 
 ### *MonCarloDevice*
-The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  
-#### Instantiation:
-It initializes with a numpy array of either strings or numbers that must be unique values in the array. 
-#### Additional Methods: 
-After instantiation, the user can either 
-- roll the dice, or
-- change the weight of one side to create an 'unfair' die. 
+    The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  
 
-### *MonCarloGame*
 #### Instantiation:
+    It initializes with a numpy array of either strings or numbers that must be unique values in the array.   
+
 #### Additional Methods: 
+    After instantiation, the user can either:
+        - roll the die, or
+        - change the weight of one side to create an 'unfair die'.
+ 
+### *MonCarloGame*
+    The second class in the sequence is called *MonCarloGame*.  It takes a list of die objects (or Monte Carlo devices) created by the die class and initiates the stochastic process of rolling.  
+
+#### Instantiation:
+    It initializes with a list of die objects from the die class, MonCarloDevice, that have identical faces. 
+    
+#### Additional Methods: 
+    After instantiation, the user can:
+        - roll the dicea certain number of times,
+        - return the results of the series of rolls in either wide or narrow format.
 
 ### *MonCarloAnalyzer*
-#### Instantiation:
-#### Additional Methods:
+    The third and final class in the sequence is called *MonCarloAnalyzer*.  It takes one game objects created by the die class and initiates the stochastic process.  
 
-SHowing how each class is called:
-- what the class does
-- how to initialize it 
-- examples of method calls
-- sample code snippets showing syntax
+#### Instantiation:
+    It initializes with one game object from the game class, MonCarloGame. 
+
+#### Additional Methods:
+    After instantiation, the user can:
+        - return a count of the jackpots, the times when all faces of all die objects were the same value,
+        - return a table of face-counts per roll, 
+        - return a table of the distinct combinations of faces rolled, along with their counts,
+        - return a table of the distinct permutations of faces rolled, along with their counts.
 
 ## API Reference
 
@@ -208,4 +236,4 @@ Input:
 - [@virginia-vrb9e (https://github.com/virginia-vrb9e)]
  
 ### Thanks
-- []
+- [(https://github.com/virginia-vrb9e/MONCARLO/blob/main/Thanks.md)]
