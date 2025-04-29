@@ -61,29 +61,47 @@ SHowing how each class is called:
 
 ## API Reference
 
-#### Get all items
+## MonCarloDevice (die class)
 
-```http
-  GET /api/items
-```
+Action: This class creates a game object/device for a Monte Carlo simulation. 
+    
+Input: takes a numpy array of sides for the device
+- must be a NumPy array
+- sides or faces must be unique
+- sides can be numbers or strings
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+### Methods:
+        __init__: 
+            instantiates a game device with the given p.array
+              - creates a game device with the face values of the array 
+              - and a default face weight of 1.0
+Input:              
+| Parameter | Type     | Description                                                      |
+| :-------- | :------- | :--------------------------------------------------------------- |
+| `faces`   | `string` | **Required**. must be a NumPy array of unique values, str or int |
 
-#### Get item
 
-```http
-  GET /api/items/${id}
-```
+        change_facewt: 
+            changes the weight of a specified side to create an unfair die
+              - takes 2 arguments: 
+              (1) the face value to be changed  
+              (2) the new face-weight
+              
+        roll: 
+            rolls the die
+              - takes integer parameter of how many times to roll the die (defaults to 1)
+          
+        current_state: 
+              returns the die's current state as a pandas dataframe
+    """
+
+
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
 
-#### add(num1, num2)
 
-Takes two numbers and returns the sum.
 
 ## Author
 - [@virginia-vrb9e (hhttps://github.com/virginia-vrb9e)]
