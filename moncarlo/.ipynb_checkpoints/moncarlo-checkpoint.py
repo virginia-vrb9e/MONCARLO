@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import PIL
+import urllib.request
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
