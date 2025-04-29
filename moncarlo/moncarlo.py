@@ -221,6 +221,7 @@ class MonCarloAnalyzer:
         if not isinstance(game, MonCarloGame):
             raise ValueError("Must pass a MonCarloGame object to initiate.")
         self.game = game
+        self.df = self.game.show_results()
         
 
     # method: jackpot (all faces the same)
@@ -238,9 +239,11 @@ class MonCarloAnalyzer:
     # computes how many times a particular face is rolled in each event
     # df in wide format (roll_# index)
     def facecounts_per_roll(self):
-        """computes how many times a given face is rolled in each event"""
-        facecounts = self.game.fillna(0)
-        facecounts = self.game.count(axis='rows')
+        """computes how many times a given face is rolled in each event, or the raw frequencies of each face."""
+        df_rawcounts = self.df.apply(pd.Series.value_counts, axis = 1)
+        df_rawcounts = df_rawcounts.fillna(0)
+        df_rawcounts.index.name = 'roll_#'
+        return df_rawcounts
     
         # need to create a df of results... 
     
