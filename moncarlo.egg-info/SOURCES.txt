@@ -3,8 +3,6 @@ README.md
 setup.py
 moncarlo/__init__.py
 moncarlo/moncarlo.py
-moncarlo/moncarlo2_justincase.py
-moncarlo/moncarlo_justincase.py
 moncarlo.egg-info/PKG-INFO
 moncarlo.egg-info/SOURCES.txt
 moncarlo.egg-info/dependency_links.txt
