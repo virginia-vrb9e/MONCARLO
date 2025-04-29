@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: moncarlo
+Version: 1.0.0
+Summary: This is the moncarlo package.  It allows the user to create Monte Carlo simulation devices, referred to as a die or dice.  It allows various levels of play involving the die/dice and also collects descriptive statistics about the devices and the plays.
+Home-page: https://github.com/virginia-vrb9e/DS5100-project-repo
+Author: Virginia Brame
+Author-email: vrb9e@virginia.edu
+License: LICENSE.txt
+License-File: LICENSE.txt
