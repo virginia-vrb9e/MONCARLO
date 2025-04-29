@@ -160,7 +160,6 @@ class MonCarloGame:
         assert isinstance(nrolls, int) 
         results_of_play = {} 
     
-        # enumerate iterates and counts    
         for index, die in enumerate(self.dice):
             results_of_play[index] = die.roll(nrolls)
         
@@ -213,40 +212,25 @@ class MonCarloAnalyzer:
         permutations:
             - computes the distinct permutations of faces rolled, along with their counts
     """
-    # method: init
-    # takes results of one game (game object) | ValueError
-    
     def __init__(self, game):
         """instantes the class with one MonCarloGame object"""
         if not isinstance(game, MonCarloGame):
             raise ValueError("Must pass a MonCarloGame object to initiate.")
         self.game = game
         self.df = self.game.show_results()
-        
-
-    # method: jackpot (all faces the same)
-    # computes: how many times the game resulted in a jackpot 
-    # nunique(axis = 1), for row-wise
-    # returns an integer: int()
     
     def jackpot(self):
         """computes how many times the game resulted in a jackpot"""
-        jackpot = (self.game.nunique(axis=1)==1)
+        jackpot = (self.df.nunique(axis=1)==1)
         num_jackpots = sum(jackpot == True)
         return int(num_jackpots)
     
-    # method: face-counts-per-roll 
-    # computes how many times a particular face is rolled in each event
-    # df in wide format (roll_# index)
     def facecounts_per_roll(self):
         """computes how many times a given face is rolled in each event, or the raw frequencies of each face."""
         df_rawcounts = self.df.apply(pd.Series.value_counts, axis = 1)
         df_rawcounts = df_rawcounts.fillna(0)
         df_rawcounts.index.name = 'roll_#'
         return df_rawcounts
-    
-        # need to create a df of results... 
-    
     
     # method: combo count
     def combos(self):
