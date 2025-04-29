@@ -1,0 +1,9 @@
+Requirements for module moncarlo:
+
+- Python (tested in 3.12)
+- NumPy 
+- Pandas
+- From Matplotlib:
+    - pyplot
+    - image
+   
