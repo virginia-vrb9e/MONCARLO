@@ -1,6 +1,6 @@
 # DS 5100 Final Project
 ## **A Monte Carlo Simulation Game & Stats**
-<img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=200 height=200 align='left'>
+<img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=250 height=250 align='left'>
 
 ### Purpose
 
