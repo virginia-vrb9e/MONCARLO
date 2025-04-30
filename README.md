@@ -3,6 +3,10 @@
 <img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=225 height=225 align='left'>
 
 ### Purpose
+```
+what does this do?
+```
+
 
     This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. 
     Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes:
