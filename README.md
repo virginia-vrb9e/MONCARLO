@@ -1,6 +1,6 @@
 # DS 5100 Final Project
 ## **A Monte Carlo Simulation Game & Stats**
-<img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=250 height=250 align='left'>
+<img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=225 height=225 align='left'>
 
 ### Purpose
 
@@ -15,19 +15,19 @@
   
 #### Notes about language
 
-    - **die**:  Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language).
+    - die:  Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language).
     
-    - **face**: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die. 
+    - face: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die. 
 
 
 ## METADATA
 ### Package Information:
 
-    - **Name**: moncarlo
-    - **Version**: 1.0.0
-    - **Release Date**: April 29, 2025
-    - **License**: MIT
-    - **Python Compatibility**: Tested in Python 3.12.5
+    - Name: moncarlo
+    - Version: 1.0.0
+    - Release Date: April 29, 2025
+    - License: MIT
+    - Python Compatibility: Tested in Python 3.12.5
 
 ### Necessary Packages:
 
@@ -48,11 +48,12 @@ from moncarlo import MonCarloDevice
 
 ## SYNOPSIS
     This Python module consists of three classes that work together in sequence to simulate a Monte Carlo device. There is no parent class, per se, but the classes are called in this sequence:
+    
     [die class] --> [game class] --> [analyzer class],
     
-    wherein products from the previous class are used to initiate the next class in the sequence. 
+    and objects created in the previous class are used to instantiate the next class. 
 
-### *MonCarloDevice*
+### MonCarloDevice
     The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  
 
 #### Instantiation:
@@ -63,7 +64,7 @@ from moncarlo import MonCarloDevice
         - roll the die, or
         - change the weight of one side to create an 'unfair die'.
  
-### *MonCarloGame*
+### MonCarloGame
     The second class in the sequence is called *MonCarloGame*.  It takes a list of die objects (or Monte Carlo devices) created by the die class and initiates the stochastic process of rolling.  
 
 #### Instantiation:
@@ -74,7 +75,7 @@ from moncarlo import MonCarloDevice
         - roll the dicea certain number of times,
         - return the results of the series of rolls in either wide or narrow format.
 
-### *MonCarloAnalyzer*
+### MonCarloAnalyzer
     The third and final class in the sequence is called *MonCarloAnalyzer*.  It takes one game objects created by the die class and initiates the stochastic process.  
 
 #### Instantiation:
