@@ -1,4 +1,4 @@
-# DS 5100 Final Project
+# The MONCARLO Module
 ## **A Monte Carlo Simulation Game & Stats**
 <img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=225 height=225 align='left'>
 
