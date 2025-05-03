@@ -152,7 +152,7 @@ class MonCarloGame:
     """
 
     def __init__(self, dice): 
-        """instantiates MonCarloGame with the list of MonCarloGame objects"""
+        """instantiates MonCarloGame with a list of MonCarloGame objects"""
         self.dice = dice
         
     def play(self, nrolls):

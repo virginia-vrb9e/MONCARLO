@@ -3,25 +3,26 @@
 <img src="https://github.com/virginia-vrb9e/MONCARLO/blob/main/data/d20_met_nyc.jpg" width=225 height=225 align='left'>
 
 ### Purpose
-```
-what does this do?
-```
 
-
-    This is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. 
-    Our purpose was to create a simple Monte Carlo Simulator using a set of three related classes:
+    The MONCARLO Module is the end of semester final project for UVA School of Data Science course DS 5100, Programming for Data Science. 
+    The purpose of the project was to create a simple Monte Carlo simulator using a set of three classes:
     
-         - a die class named *MonCarloDevice*,
-         - a game class named *MonCarloGame*, and
-         - an analyzer class called *MonCarloAnalyzer*. 
+         - a die class named MonCarloDevice,
+         - a game class named MonCarloGame, and
+         - an analyzer class called MonCarloAnalyzer. 
     
-    The simulator allows a user to create one or more die objects with weighted sides to simulate rolls where dies can be rolled and results are provided.
+    The simulator allows a user to create die objects, change the weight of sides, and to simulate a specified number of rolls with different descriptive statistics provided.
   
 #### Notes about language
 
-    - die:  Please note that the word 'die' will refer to any discrete random variable assoicated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language).
+    - die:  
+    Please note that the word 'die' will refer to any discrete random variable associated with a stochastic process (e.g. rolling an actual die, flipping a coin, or speaking a language).  As such, the terms 'die' and 'device' are used interchangeably. 
     
-    - face: 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die. 
+    - face: 
+    The word 'face' refers to one of the discrete random variables of the device created.  One can imagine the 'faces' of a die. 
+    
+    - roll:
+    The word 'roll' refers to the stochastic process of randomly selecting faces of a created game device.  One can imagine rolling die as an example of this process. 
 
 
 ## METADATA
@@ -29,16 +30,14 @@ what does this do?
 
     - Name: moncarlo
     - Version: 1.0.0
-    - Release Date: April 29, 2025
+    - Release Date: May 4, 2025
     - License: MIT
     - Python Compatibility: Tested in Python 3.12.5
 
 ### Necessary Packages:
 
-    - numpy
-    - pandas
-    - matplotlib
-
+    - NumPy (v. 1.24.1 or higher)
+    - Pandas (v. 2.0.3 or higher)
 
 ### Installation:
 ```bash
@@ -51,25 +50,26 @@ from moncarlo import MonCarloDevice
 ```
 
 ## SYNOPSIS
-    This Python module consists of three classes that work together in sequence to simulate a Monte Carlo device. There is no parent class, per se, but the classes are called in this sequence:
+    This Python module consists of three classes that work together to simulate a Monte Carlo simmulation device. There is no parent class, but the classes are called in this order:
     
-    [die class] --> [game class] --> [analyzer class],
+    [die class (MonCarloDevice)] --> [game class (MonCarloGame)] --> [analyzer class (MonCarloAnalyzer)].
     
-    and objects created in the previous class are used to instantiate the next class. 
+    Objects created in a previous class are used to instantiate the next class following sequence order. 
 
 ### MonCarloDevice
-    The first class in the sequence is called *MonCarloDevice*.  It represents a die or group of random variables associated with a stochastic process.  
+    The first class in the sequence is called MonCarloDevice.  It represents a die or group of random variables associated with a stochastic process.  
 
 #### Instantiation:
-    It initializes with a numpy array of either strings or numbers that must be unique values in the array.   
+    The MonCarloDevice class is passed a numpy array of unique faces of type string or numeric.  
 
 #### Additional Methods: 
     After instantiation, the user can either:
-        - roll the die, or
-        - change the weight of one side to create an 'unfair die'.
+        - roll the die,
+        - change the weight of one side to create an 'unfair die', 
+        - return a dataframe of the current state of the die (face names and weights).
  
 ### MonCarloGame
-    The second class in the sequence is called *MonCarloGame*.  It takes a list of die objects (or Monte Carlo devices) created by the die class and initiates the stochastic process of rolling.  
+    The second class in the sequence is called MonCarloGame.  It takes a list of die objects created by the die class, MonCarloDevice, and initiates the stochastic process of ' rolling the die'.  
 
 #### Instantiation:
     It initializes with a list of die objects from the die class, MonCarloDevice, that have identical faces. 
