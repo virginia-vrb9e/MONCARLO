@@ -32,32 +32,39 @@ class TestMonCarloDevice(unittest.TestCase):
         self.assertIsNotNone(die_test._gamestats),"There is a problem with the internal recording of this class."
 
 class TestMonCarloGame(unittest.TestCase):
+    
+    def test_5_initiategame(self):
         self.test_dice = [self.die_test, self.die_test]
-        self.assertIsInstance(self.die_test, TestMonCarloDevice object), "There is an issue with game instantiation."
+        self.assertIsInstance(self.die_test, TestMonCarloDevice), "The object being passed is not a device from MonCarloDevice."
+        self.test_game = MonCarloGame(self.test_dice)
+        return self.test_game
     
     def test_6_play(self):
         self.test_dice.play(2)
+        self.assertIsNotNone(self.test_dice._rolls), "There is an issue with the game results."
     
     def test_76show_results(self):
-        pass
+        self.assertNotIn(self.test_dice._rolls, self.test_dice), "Error: there are no results from the play." 
     
 
-class TestMonCarloAnalyzer(unittest.TestCase):
+class TestMonCarloAnalyzer(unittest.TestCase, self.test_game):
     
-    def test_8_instantiate analyzer(self):
-        pass
+    def test_8_instantiate_analyzer(self):
+        self.test_analyzer = MonCarloAnalyzer(self.test_game)
+        self.assertIsNotNone(self.test_game), "You must pass something to the initializer for MonCarloAnalyzer."
     
     def test_9_jackpot(self):
-        pass
+        self.assertIsNotNone(self.test_analyzer.jackpot), "Error: the system did not complete the check for jackpots."
     
     def test_10_facecounts_per_roll(self):
-        pass
+        self.AssertIsNotNone(self.test_analyzer.facecounts_per_roll), "Error: the system did not complete the check for facecounts."
     
     def test_11_combos(self):
-        pass
+        self.AssertIsNotNone(self.test_analyzer.combos), "Error: the system did not complete the check for combos."
     
     def test_12_permutations(self):
-        pass
+        self.AssertIsNotNone(self.test_analyzer.permutations), "Error: the system did not complete the check for permutations." 
 
-        
+if __name__ == '__main__':
+    unittest.main(argv=['first-arg-is-ignored'], exit=False)
         

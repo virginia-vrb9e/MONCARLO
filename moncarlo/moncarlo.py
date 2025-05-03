@@ -34,7 +34,7 @@ class MonCarloDevice:
         current_state: 
               returns the die's current state as a pandas dataframe
     """
-        print("The MONCARLO Module: a Monte Carlo simulation game \n--------------------------------------------------")
+    print("The MONCARLO Module: a Monte Carlo simulation game \n--------------------------------------------------")
     img = np.array(PIL.Image.open(urllib.request.urlopen('https://images.metmuseum.org/CRDImages/eg/original/10.130.1158_001.jpg')))
     plt.imshow(img)
     print("THE MET Museum:\nTwenty-sided die (icosahedron) with faces inscribed with Greek letters\nPtolemaic Period – Roman Period\n(2nd century B.C. – 4th century A.D.)\n")
