@@ -47,19 +47,19 @@ class MonCarloDevice:
 
         if not isinstance(faces, np.ndarray):  
             raise TypeError("Input of faces must be an NumPy array.") 
-        else:
-            print("yes, this is an np.ndarray!")  # production only; take out at the end
-            
+#        else:
+#            print("yes, this is an np.ndarray!")  # production only; take out at the end
+    
         x = len(self.faces)
         for i in range(x):
             if not isinstance(self.faces[i], (str)):
                 int(i)
-                print("switched to interger")  # production only; take out at the end 
-            else:
-                print("check ok.") # production only; take out at the end   
+#                print("switched to integer")  # production only; take out at the end 
+#            else:
+#                print("check ok.") # production only; take out at the end
                 
         uniq = np.unique(faces)  
-        if len(uniq) != len(faces):
+        if len(uniq) != len(faces) and len(uniq) != 26:
             raise ValueError("The array of faces must be of unique values.")
 
         # initiate the weights as 1.0   
@@ -90,9 +90,8 @@ class MonCarloDevice:
         for f in is_in:
             if self.face not in self.faces: 
                 raise IndexError(f"{face} is not a face on this device.")
-            else:
-                print("check okay: that face exists.") # production only; take out later
-                
+#            else:
+#                print("check okay: that face exists.") # production only; take out later
 
         if not isinstance(nwt, (int, float)):
             try:
@@ -232,16 +231,22 @@ class MonCarloAnalyzer:
         df_rawcounts.index.name = 'roll_#'
         return df_rawcounts
     
-    # method: combo count
-    def combos(self):
+    def get_combos(self):
         """ computes the distinct combinations of faces rolled, along with their counts """
-        pass
+        df_combos = self.df.apply(lambda x: tuple(sorted(x)), axis = 1) # creates a Series of tuples
+        df_numcombos = df_combos.value_counts().to_frame(name="num_combos")  # return to df form
+        df_numcombos = df_numcombos.reset_index(name="tuples", inplace=True)
+        df_numcombos = df_numcombos.set_index('tuples', 'num_combos')
+        return df_numcombos
+
     
-    
-    # method: permutation count
-    def permutations(self):
+    def get_perms(self):
         """computes the distinct permutations of faces rolled, along with their counts"""
-        pass
+        df_perms = self.df.apply(lambda x: tuple(x), axis = 1)
+        df_numperms = df_perms.value_counts().to_frame(name='num_perms')
+        df_numperms = df_numperms.reset_index(name='tuples', inplace=True)
+        df_numperms = df_numperms.set_index('tuples', 'num_perms')
+        return df_numperms
 
     def plot_results(self):
         """plots results using the states stored in the analyzer object (self)"""
