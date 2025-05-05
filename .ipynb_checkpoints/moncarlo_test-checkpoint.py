@@ -18,6 +18,7 @@ class TestMonCarloDevice(unittest.TestCase):
     def setUp(self):
         arr_test = np.array(['a', 'b', 'c'])
         self.die_test = MonCarloDevice(arr_test)
+        self.test_roll = self.die_test.roll(10)
     
     def test_1_instantiate_device(self):
         self.assertIn(1.0, self.die_test.weights), "The face weights are not 1.0." 
@@ -28,7 +29,7 @@ class TestMonCarloDevice(unittest.TestCase):
         self.assertIsNotNone(self.die_test), "facewt cannot be None."
         
     def test_3_roll(self):
-        test_roll = self.die_test.roll(10)
+        self.test_roll = self.die_test.roll(10)
         pass
         
     def test_4_current_state(self):
@@ -41,6 +42,7 @@ class TestMonCarloGame(unittest.TestCase):
         self.die_test = MonCarloDevice(arr_test)
         self.test_dice = [self.die_test, self.die_test]
         self.test_game = MonCarloGame(self.test_dice)
+        self.test_roll = self.die_test.roll(10)
     
     def test_5_initiategame(self):
         self.assertIsInstance(self.die_test, MonCarloDevice), "The object being passed is not a device from MonCarloDevice."
@@ -59,13 +61,14 @@ class TestMonCarloAnalyzer(unittest.TestCase):
     def setUp(self):
         arr_test = np.array(['a', 'b', 'c'])
         self.die_test = MonCarloDevice(arr_test)
+        self.test_roll = self.die_test.roll(10)
         self.test_dice = [self.die_test, self.die_test]
-        self.test_game = MonCarloGame(self.test_dice)
+        self.test_game = MonCarloGame(self.test_dice) # analyzer analyzes THIS after the game is played and results are stored in self
+        self.test_playedgame = self.test_game.play(1000) 
         self.test_analyzer = MonCarloAnalyzer(self.test_game)
 
-    
     def test_8_instantiate_analyzer(self):
-        self.assertIsInstance(self.test_game, MonCarloGame), "The object being passed is not a device from MonCarloGame."
+         self.assertIn(self.die_test, self.test_dice), "You are not passing the correct parameter."
     
     def test_9_jackpot(self):
         self.assertIsNotNone(self.test_analyzer.jackpot), "Error: the system did not complete the check for jackpots."
@@ -77,7 +80,7 @@ class TestMonCarloAnalyzer(unittest.TestCase):
         self.assertIsNotNone(self.test_analyzer.combos), "Error: the system did not complete the check for combos."
     
     def test_12_permutations(self):
-        self.assertIsNotNone(self.test_analyzer.permutations), "Error: the system did not complete the check for permutations." 
+         self.assertIsNotNone(self.test_analyzer.permutations), "Error: the system did not complete the check for permutations."
 
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'], exit=False)

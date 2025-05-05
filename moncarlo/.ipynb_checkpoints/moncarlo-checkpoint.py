@@ -234,18 +234,15 @@ class MonCarloAnalyzer:
     def get_combos(self):
         """ computes the distinct combinations of faces rolled, along with their counts """
         df_combos = self.df.apply(lambda x: tuple(sorted(x)), axis = 1) # creates a Series of tuples
-        df_numcombos = df_combos.value_counts().to_frame(name="num_combos")  # return to df form
-        df_numcombos = df_numcombos.reset_index(name="tuples", inplace=True)
-        df_numcombos = df_numcombos.set_index('tuples', 'num_combos')
-        return df_numcombos
-
+        df_numcombos = df_combos.value_counts().to_frame(name='num_combos')  # return to df form
+        df_numcombos = df_numcombos.reset_index(names='tuples').set_index(['tuples', 'num_combos'])
+        return df_num_combos
     
     def get_perms(self):
         """computes the distinct permutations of faces rolled, along with their counts"""
-        df_perms = self.df.apply(lambda x: tuple(x), axis = 1)
+        df_perms = self.df.apply(lambda x: "".join(list(x)), axis = 1) # takes whitespace from between letters
         df_numperms = df_perms.value_counts().to_frame(name='num_perms')
-        df_numperms = df_numperms.reset_index(name='tuples', inplace=True)
-        df_numperms = df_numperms.set_index('tuples', 'num_perms')
+        df_numperms = df_numperms.reset_index(names='letters').set_index(['letters', 'num_perms'])
         return df_numperms
 
     def plot_results(self):
